@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Concepts - Meshroom</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Concepts";
+        var mkdocs_page_input_path = "concepts.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../logo-title.svg" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Meshroom</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Concepts</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#integration-lifecycle">Integration lifecycle</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#capability-graph">Capability graph</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#project">Project</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#product">Product</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#integration">Integration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#instance">Instance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#plug">Plug</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#updown">Up/down</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hooks">Hooks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#wrap-up-with-meshroom-project-structure">Wrap-up with Meshroom project structure</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tutorial/">Tutorial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Commands</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/add/">meshroom add</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/configure/">meshroom configure</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/create_integration/">meshroom create integration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/create_product/">meshroom create product</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/down/">meshroom down</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/execute/">meshroom execute</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/init/">meshroom init</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/plug/">meshroom plug</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/produce/">meshroom produce</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/publish/">meshroom publish</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/pull/">meshroom pull</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/remove/">meshroom remove</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/trigger/">meshroom trigger</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/unplug/">meshroom unplug</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/up/">meshroom up</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/watch/">meshroom watch</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Meshroom</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Concepts</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h1>
+<h2 id="integration-lifecycle">Integration lifecycle<a class="headerlink" href="#integration-lifecycle" title="Permanent link">&para;</a></h2>
+<p>TODO CYCLE SCHEMA</p>
+<h2 id="capability-graph">Capability graph<a class="headerlink" href="#capability-graph" title="Permanent link">&para;</a></h2>
+<p>Formally, a cybersecurity mesh architecture (CSMA) is a directed graph of products talking to eachother.
+More precisely, it is an overlay of 2 graphs:</p>
+<p><img alt="capability graph" src="../img/graph.svg" /></p>
+<ul>
+<li>
+<p>The <strong>capability graph</strong>, which expresses the set of all products that can be interoperated with eachother and what functional capacities they expose. Nodes of this graph are Product capabilities, and edges connect complementary capabilities. For example, one product may <strong>consume</strong> alerts <strong>produced</strong> by another product, or can <strong>execute</strong> actions <strong>triggered</strong> by another one. Edges thus characterise interop opportunities about a certain <strong>Topic</strong> between a source product and a destination product. The direction of the edges materializes the dataflow : the source product <strong>produces/triggers</strong> information (resp. actions) that the destination product <strong>consumes/executes</strong>. An edge exists as soon as the products define a compatible producer (or trigger) / consumer (resp. executor) pair of <strong>Integrations</strong>. The edge also carries the <strong>roles</strong> in the data exchange</p>
+<ul>
+<li>in <strong>push</strong> mode, the producer is <strong>active</strong> and the consumer is <strong>passive</strong> (<em>e.g.</em> a Syslog forwarder)</li>
+<li>in <strong>pull</strong> mode, the producer is <strong>passive</strong> and the consumer is <strong>active</strong> (<em>e.g.</em> an HTTP GET API)</li>
+</ul>
+</li>
+</ul>
+<p>Therefore, an edge exists between product couples that expose complementary integrations for compatible topics, and match formats (or other compatibility criteria you want to refine within the scope of a capability).</p>
+<p>The density if the capability graph measures the "openness" of the products constellation ; one wants to maximize the number of allowed interops between cybersecurity solutions available on the market</p>
+<ul>
+<li>The <strong>Mesh</strong> graph itself, which means several product <strong>Instances</strong> connected to eachother by <strong>Plugs</strong> which leverage compatible Integrations over the underlying capability graph. Instances correspond to actual user <strong>tenants</strong> of the underlying products, and plugs are live connections between those tenants. In order to setup the defined plugs, instances must be configured to enable the corresponding production/consumption triggering/execution logic, potentially via custom additions to the products themselves. Meshroom's spirit is to make all this configuration and provisioning as simple as a single <code>meshroom up</code> command.</li>
+</ul>
+<p>To do so, Products, Integrations, Instances and Plugs are defined via YAML manifests and vendor code additions when required. All these files belong to a <strong>git-backed repository</strong> that can be shared, versioned via git and manipulated via the Meshroom CLI (similar with Helm charts being shared among a community of Kubernetes users).</p>
+<p>Sensitive data, like API keys and other secrets used to teleoperate the Instances is natively managed by Meshroom in a <strong>local GPG secrets store</strong>. This store can also be shared, like any other GPG content, with GPG peers. This fosters the <strong>sharing</strong> of a SOC-as-code and limits the risk of information leakage.</p>
+<h2 id="project">Project<a class="headerlink" href="#project" title="Permanent link">&para;</a></h2>
+<p>A Meshroom Project is a git-backed local directory on your computer, based on a file structure. Meshroom CLI handles this structure (see <a href="#wrap-up-with-meshroom-project-structure">Meshroom project structure</a>).</p>
+<p>You can start a new meshroom project via <code>meshroom init &lt;path&gt;</code>. This will setup a new local git repo and few minimal files in this directory so that you can start building your integrations and mesh architecture. You can then directly add a git remote via <code>git remote add &lt;remote&gt; &lt;remote_url&gt;</code> such as a GitHub repository to save, share and publish your project via <code>git push</code>, and use the directory as a classical Git repository.</p>
+<p>Subsequent meshroom commands must be executed at the <code>&lt;path&gt;</code>'s root and will manipulate its files hierarchy.</p>
+<h2 id="product">Product<a class="headerlink" href="#product" title="Permanent link">&para;</a></h2>
+<p>In Meshroom, a Product is the definition of a cybersecurity product's capabilities. A Product is primarily defined via a YAML file with:</p>
+<ul>
+<li>a <strong>name</strong></li>
+<li>a textual <strong>description</strong> of its functional surface and its role in the security ecosystem</li>
+<li>a set of <strong>tags</strong>, expliciting the product category it belongs to (<em>e.g.</em>, EDR, EASM, SIEM, etc)</li>
+<li>a <code>produces</code> attribute listing the <strong>producer</strong> capabilities of the product (which <strong>topics</strong> the product is able to produce data for)</li>
+<li>a <code>consumes</code> attribute, listing the <strong>consumer</strong> capabilities of the product</li>
+<li>a <code>triggers</code> attribute, listing the <strong>trigger</strong> capabilities of the product</li>
+<li>a <code>executes</code> attribute, listing the <strong>executor</strong> capabilities of the product</li>
+</ul>
+<p>Here is an example of consumer capability:</p>
+<pre><code class="language-yaml">...
+consumes:
+    events:
+        - mode: pull
+          format: ECS
+        - mode: push
+          format: syslog
+...
+</code></pre>
+<p>This YAML strip tells that the product can <strong>consume</strong> the <strong>events</strong> topic in <strong>pull mode</strong> (aka active consumer, passive producer, as in HTTP GET) when events are formatted using ECS, and can consume events in <strong>push mode</strong> (aka passive consumer, active produver, as in syslog forwarding) as Syslog lines. Capabilities may be more generic (<em>e.g.</em> no format constraint) or more specific (<em>e.g.</em> add a protocol constraint to match). In all cases, two Products are said "interoperable" when they both have corresponding capabilities</p>
+<ul>
+<li>of complementary role (<code>consumes</code>-&gt;<code>produces</code> or <code>triggers</code>-&gt;<code>executes</code>)</li>
+<li>of identical topic ("events" here)</li>
+<li>of matching constraints (mode, format, etc). When a constraint is unset, the capability is considered "always matching" (<em>e.g</em> an ECS events producer will match a events consumer whose format is unset)</li>
+</ul>
+<p>Ideally, every product should define their full functional surface (incoming and outgoing data feeds, remote API commands, etc) with appropriate constraints to clearly state their complete interop potential. This can be cumbersome, so Meshroom comes with a predefined set of <strong>Product Templates</strong> to scaffold your own product. The product templates catalog is based on Gartner's "Hype Cycle for Security Operations 2024" and tries to cover the critical capabilities of these products, but feel free to contribute new templates if you feel we missed some product categories.</p>
+<p>To create a new product in your Meshroom project, simply use the</p>
+<p><code>meshroom create product</code></p>
+<p>command. You may base your product on an existing template via <code>meshroom create product --from &lt;template&gt;</code></p>
+<p>You can list and search available products in the current project via</p>
+<p><code>meshroom list products</code></p>
+<h2 id="integration">Integration<a class="headerlink" href="#integration" title="Permanent link">&para;</a></h2>
+<p>To be interoperable, most product capabilities can't just be declared, some must be programmatically configured, some even involve pushing custom code or calling multiple APIs to get up-and-running. The recipe of setting up a consumer/producer/trigger/executor capability on a product is termed an <strong>Integration</strong>.</p>
+<p>Some Integrations will simply be implicitly rendered by their product's YAML manifest. For example, an exposed HTTP GET API at a given URL is fully described by its HTTP nature, the method used, the endpoint's URL and accepted path and query params. As in an Open API manifest, this information is enough to interconnect with a 3rd-party.</p>
+<p>Integrations that require specific configuration procedures can be explicitly defined via python hooks (see <a href="#hooks">Hooks</a>) in the product's integrations folders. Python files insides those folders are automatically interpreted and used when calling <code>meshroom up</code> to know how to configure each end of a Plug edge, yielding an up-and-running interop between both products.</p>
+<p>Whithin Meshroom, Products <code>A</code> an <code>B</code> are said <strong>interoperable</strong> when either:
+* <code>A</code> defines an integration with <code>B</code> and <code>B</code> defines an integration with <code>A</code>, both defining a <code>@setup</code> Hook. In this scenario, <code>A</code> and <code>B</code> are considered responsible for setting up their end of the edge.
+* <code>A</code> or <code>B</code> defines a <code>@setup</code> Hook with <code>owns_both=True'</code>. In this scenario, a single instance will take care of setting up the full interconnection, without requiring any provisioning from the other end (this is typically the case for API endpoints, which by design don't need to be "configured").</p>
+<blockquote>
+<p>A couple of Products exposing complementary capabilities is thus considered <em>theoretically interoperable</em> but since none provides a <code>@setup</code> hook, Meshroom doesn't know how to concretely setup the interconnection.</p>
+</blockquote>
+<p>You can create an integration via</p>
+<p><code>meshroom create integration &lt;product&gt; &lt;target_product&gt; &lt;topic&gt; [options...]</code></p>
+<p>You can see that an integration is always about a specific topic. If a given product endpoint serves multiple purposes, you shall define as many Integrations as necessary to cover the actual functional scope of it.</p>
+<p>You can list and search among existing integrations using</p>
+<p><code>meshroom list integrations</code></p>
+<h2 id="instance">Instance<a class="headerlink" href="#instance" title="Permanent link">&para;</a></h2>
+<p>Once your project defines a <strong>Capability Graph</strong> of <strong>Products</strong> and <strong>Integrations</strong>, you're ready to define a <strong>Mesh architecture</strong> by picking up among its allowed nodes and edges.</p>
+<p>In a mesh, nodes are called <strong>Instances</strong> and edges are called <strong>Plugs</strong></p>
+<p>You can add a new instance of a given product using</p>
+<p><code>meshroom add &lt;product&gt; [instance_name]</code></p>
+<p>If the product declares required settings (like API keys, cloud region, URL, etc), you will be asked for their values, interactively. Fields declared as secrets in the product's YAML manifest will be securely stored in the project's GPG store.</p>
+<p>You can list defined instances using</p>
+<p><code>meshroom list instances</code></p>
+<p>And (re-)configure settings for an instance using</p>
+<p><code>meshroom configure &lt;instance_name&gt;</code></p>
+<p>Your project's Instances and GPG store form a handy bundle of your full SOC's product constellation, versioning and securely storing all the necessary material to administrate and interoperate this ecosystem in a well-defined hierarchy.</p>
+<h2 id="plug">Plug<a class="headerlink" href="#plug" title="Permanent link">&para;</a></h2>
+<p>Instances communicate with eachother via so-called <strong>Plugs</strong>. Plugs are the edge of your mesh's graph. A Plug makes use of:</p>
+<ul>
+<li>a source Integration on the source product at the edge's origin</li>
+<li>a destination Integration on the destination product at the opposite end.
+A Plug always carries a single topic, in a single mode. When setting up a Plug using 2 integrations, the plug inherits its format and other constraints from the most specific combination of both integrations' constraints.
+When no matching constraint set can be found out of all existing Integrations, the Plug can't be created and the two product instances won't be able to communicate. You can then build new integration, perhaps more generic, to cover your desired Plug's need, on one or both ends of the edge (see <a href="#integration">Integration</a>).</li>
+</ul>
+<p>You can plug two Instances using</p>
+<p><code>meshroom plug &lt;topic&gt; &lt;source_instance&gt; &lt;destination_instance&gt; [options...]</code></p>
+<p>and unplug an existing plug using</p>
+<p><code>meshroom unplug &lt;topic&gt; &lt;source_instance&gt; &lt;destination_instance&gt; [options...]</code></p>
+<p>Note that there can only be one plug at a time for each set of constraints. You can get several plugs on the same Instances pair for the same topic by narrowing their constraint sets.</p>
+<p>You can list and search plugs using</p>
+<p><code>meshroom list plugs</code></p>
+<h2 id="updown">Up/down<a class="headerlink" href="#updown" title="Permanent link">&para;</a></h2>
+<p>Once your mesh is defined, you can apply it to your real product tenants via a single command:</p>
+<p><code>meshroom up</code></p>
+<p>The opposite operation being</p>
+<p><code>meshroom down</code></p>
+<p>Like in docker compose (for those familiar with it), up/down is the core value of Meshroom : it allows to configure a full mesh in a single call, that will be resolved by Meshroom CLI to a sequence of configuration operations submitted to your Instances based on the defined settings, secrets and Plugs.</p>
+<p>Ideally, you won't ever need to switch to your products' admin consoles. You may then assess the quality of your mesh interop via</p>
+<p><code>meshroom produce</code> and <code>meshroom watch</code> commands, that respectively helps you producing and inspecting data flowing through your plugs.</p>
+<h2 id="hooks">Hooks<a class="headerlink" href="#hooks" title="Permanent link">&para;</a></h2>
+<p>Many products require complex programmatic steps to setup an actual interop with a 3rd-party. The classical approach is to follow manual recipes from the products documentation, navigate through multiple admin panels and configuration forms to open the desired channel between two products. One of the main goals of Meshroom is to rationalize and fully automate these steps, so that <code>meshroom up</code> can submit the appropriate sequence of operations to all instances to configure the full mesh without direct user intervention.</p>
+<p>Willingness to favor remote tenant configuration via open APIs vary across vendors and solutions. Some products are simply not remote-configurable at all (think of adding syslog forwarding to an unexposed NGINX reverse-proxy). Others may require a very short but mandatory user navigation to their admin panel. Hopefully, more and more vendors embrace the CSMA approach and allow for completely remote configuration by 3rd-party providers.</p>
+<p>Meshroom takes into account those various regimes by allowing Products to define python hooks. Hooks are python decorated functions that will get executed in sequence upon <code>meshroom up</code>, taking the whole integration's context as arguments. Vendors and integrators can provide such hooks to implement automated procedures to remote-configure their product's capabilities. You can even provide boilerplate hooks to help user scaffold new integrations based on the products native extensibility features (plugins, custom formats, code addtions, <em>etc</em>), and publish hooks to guide the user through the vendor's homologation process required to publish their contribution into the product's official integrations catalog (marketplace, github PRs, <em>etc</em>).</p>
+<p>Hooks use vanilla python functions decorators residing either inside</p>
+<ul>
+<li>the product's directory (for product-wide generic hooks)</li>
+<li>a specific integration's subdirectory (for plug-specific hooks that depend on a specific products couple)</li>
+</ul>
+<p>via one of the decorators defined in the <code>meshroom.decorators</code> package:</p>
+<table>
+<thead>
+<tr>
+<th>hook decorator</th>
+<th>called upon</th>
+<th>usage</th>
+<th>required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@setup</td>
+<td><code>meshroom up</code></td>
+<td>define an automated setup step to get a plug up-and-running on a given instance</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>@teardown</td>
+<td><code>meshroom down</code></td>
+<td>define an automated step to shutdown and cleanup a plug from a given instance</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>@scaffold</td>
+<td><code>meshroom create integration</code></td>
+<td>generate files for a new integration for a certain topic</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>@pull</td>
+<td><code>meshroom pull</code></td>
+<td>generate integrations by pulling the vendor's online integration catalog</td>
+<td>required</td>
+</tr>
+<tr>
+<td>@publish</td>
+<td><code>meshroom publish</code></td>
+<td>submit all defined integrations to the vendor's catalog for public homologation</td>
+<td>required</td>
+</tr>
+<tr>
+<td>@produce</td>
+<td><code>meshroom produce</code></td>
+<td>send data to the plug's destination for testing</td>
+<td>required</td>
+</tr>
+<tr>
+<td>@watch</td>
+<td><code>meshroom watch</code></td>
+<td>inspect data flowing through the plug</td>
+<td>required</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Hooks may specify an order (an integer or 'first'/'last' keywords) field to order the setup sequence.</p>
+<p>Hooks marked as "required" are required for the corresponding Meshroom command to work on the said product. They are not mandatory for a product definition to be valid, but not all meshroom command will be available until these hooks are implemented.</p>
+<h2 id="wrap-up-with-meshroom-project-structure">Wrap-up with Meshroom project structure<a class="headerlink" href="#wrap-up-with-meshroom-project-structure" title="Permanent link">&para;</a></h2>
+<p>A Meshroom project is a git-backed directory on your computer, that you can version and share via your favorite online git service. The local project itself has the following structure:</p>
+<pre><code>┃
+┣━ products                      🮤━━━  All products available in the capabilities graph
+┃  ┗━ product_a
+┃     ┣━ definition.yaml              🮤━━━  Define capabilities of product_a
+┃     ┣━ setup.py                     🮤━━━  Various python files with generic hooks for product_a's integrations
+┃     ┗━ integrations                 🮤━━━  All integration offered by product_a
+┃        ┗━ product_b                 🮤━━━  All integration offered by product_a with product_b
+┃           ┣━ events_consumer.yaml       🮤━━━  An integration product_a -[events]-&gt; product_b in push mode
+┃           ┣━ events_consumer.py         🮤━━━  Hooks for the above integration
+┃           ┣━ events_consumer_pull.yaml  🮤━━━  An integration product_a -[events]-&gt; product_b in pull mode
+┃           ┗━ events_consumer_pull.py    🮤━━━  Hooks for this latter integration
+┃  ┗━ product_b
+┃     ┗━ ...                     🮤━━━ same structure for each product...
+┃
+┣━ instances                   🮤━━━  Define the instances used in this project's mesh
+┃  ┗━ product_a                   🮤━━━  Instances for product_a
+┃     ┗━ instance_a               🮤━━━  Some product_a's instance, here called &quot;instance_a&quot;
+┃        ┣━ config.yaml             🮤━━━  Non-sensitive configuration for instance_a
+┃        ┗━ plugs                   🮤━━━  Plugs whose source is instance_a
+┃           ┗━ instance_b                🮤━━━  Plugs whose destination is instance_b
+┃              ┗━ event_consumer_pull.yaml   🮤━━━  Config for plug instance_a -[events]-&gt; instance_b in pull mode
+┃  ┗━ product_b
+┃     ┗━ instance_product_b
+┃        ┗━ ...
+┣━ secrets.gpg      🮤━━━  GPG-encrypted store of all instances' secrets
+</code></pre>
+<p>This is a minimal example, your project may contain additional files, such as .gitignore, README.md and other documentation or scripts for automating stuff.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Meshroom"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../tutorial/" class="btn btn-neutral float-right" title="Tutorial">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../tutorial/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

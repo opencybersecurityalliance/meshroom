@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Meshroom</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Meshroom";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".">
+          <img src="logo-title.svg" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Meshroom</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#audience">Audience</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#as-a-vendor-fight-the-n-to-n-integration-curse">As a vendor : fight the N-to-N integration curse</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#as-a-msspmdr-setup-a-full-cybersecurity-mesh-via-declarative-and-versionable-manifests">As a MSSP/MDR : setup a full cybersecurity mesh via declarative and versionable manifests</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#as-a-developer-painless-developer-experience-to-build-and-publish-custom-product-additions">As a developer : painless developer experience to build and publish custom product additions</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="concepts/">Concepts</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="tutorial/">Tutorial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Commands</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/add/">meshroom add</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/configure/">meshroom configure</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/create_integration/">meshroom create integration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/create_product/">meshroom create product</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/down/">meshroom down</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/execute/">meshroom execute</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/init/">meshroom init</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/plug/">meshroom plug</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/produce/">meshroom produce</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/publish/">meshroom publish</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/pull/">meshroom pull</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/remove/">meshroom remove</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/trigger/">meshroom trigger</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/unplug/">meshroom unplug</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/up/">meshroom up</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="commands/watch/">meshroom watch</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Meshroom</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Meshroom</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="meshroom">Meshroom<a class="headerlink" href="#meshroom" title="Permanent link">&para;</a></h1>
+<p>A command-line tool to build and manage Cybersecurity Mesh Architectures (CSMA).</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>As defined by Gartner, a <a href="https://www.gartner.com/en/information-technology/glossary/cybersecurity-mesh">Cybersecurity Mesh Architecture</a> is a graph of interoperated cybersecurity services, each fulfilling a specific functional need (SIEM, EDR, EASM, XDR, TIP, <em>etc</em>).
+Adopting the CSMA and Meshroom's philosophy means choosing an interconnected ecosystem of high-quality products with specialized scopes rather than a captive all-in-one solution.
+It then means :</p>
+<ul>
+<li>Adopting standard formats and protocols rather than proprietary ones to share data and information between products (OCSF, STIX, ECS, OpenC2, syslog, CEF, <em>etc</em>)</li>
+<li>Leveraging Open APIs to make your products communicate and interact eachother</li>
+<li>Exploiting products' extensibility via plugins and open-source components to encourage user-defined interoperability</li>
+</ul>
+<h2 id="audience">Audience<a class="headerlink" href="#audience" title="Permanent link">&para;</a></h2>
+<h3 id="as-a-vendor-fight-the-n-to-n-integration-curse">As a vendor : fight the N-to-N integration curse<a class="headerlink" href="#as-a-vendor-fight-the-n-to-n-integration-curse" title="Permanent link">&para;</a></h3>
+<p>Cybersecurity vendors know it well : integrating with other cybersecurity products burns <strong>time and human resources</strong>. Integration teams feel so sad when every vendor has to spend those resources developing an integration with every other vendor, without work factorization : this is the <strong>N-to-N integration curse</strong>. This curse mostly originates from:</p>
+<ul>
+<li>Poor adoption of <strong>standard formats, protocols and API layouts</strong> to interoperate cybersecurity solutions</li>
+<li>Lack of <strong>open resources and documentation</strong> to start communicating and controling a given product</li>
+<li>Small actors are overwhelmed by the numerous integration opportunities with major actors, but won't <strong>factorise</strong> their contributions to make one integration suit all 3rd-party products</li>
+<li>Every actor must keep <strong>hundreds of vendor-specific integrations</strong> up to date according to hundreds of <strong>non-coordinated roadmaps</strong> and constantly breaking changes</li>
+</ul>
+<p>Meshroom helps cybersecurity vendors <strong>build integrations</strong> between their products and other solutions, keeping the integration burden as low a possible.
+To do so, <code>meshroom</code> comes with a set of predefined <strong>product templates</strong> aligned with different market analyst categories that help the vendor to align its product integration with full category scope. If you are this vendor, by publishing your product's functional surface from one of this template, you encourage the adoption of open API layouts, formats and protocols. Whereby, you contributes to turn the N-to-N integration burden into an ideal repository of N <strong>reusable product definitions</strong>, where every new vendor can effortlessly plug with the N previously declared products.</p>
+<h3 id="as-a-msspmdr-setup-a-full-cybersecurity-mesh-via-declarative-and-versionable-manifests">As a MSSP/MDR : setup a full cybersecurity mesh via declarative and versionable manifests<a class="headerlink" href="#as-a-msspmdr-setup-a-full-cybersecurity-mesh-via-declarative-and-versionable-manifests" title="Permanent link">&para;</a></h3>
+<p>Setting up a SOC is also a time-consuming operation. Sadly, MSSPs in charge of many similar information systems will often <strong>repeat</strong> those very same time-consuming steps again and again, switching from one solution's configuration interface to another one's admin console. Eventually, this will involve wildly manipulating API keys and admin forms, resulting in errors, security holes and blind spots. Many MSSPs maintain a <strong>run book</strong> of manual setup steps, and most of them <strong>automate</strong> part of those steps to get a SOC up-and-running within hours or days.</p>
+<p>Meshroom helps DevSec operators to <strong>setup a full meshed SOC</strong> made of dozens of tenants in a single CLI command : <code>meshroom up</code>.
+Because Meshroom projects are <strong>versioned</strong>, you can push and <strong>share SOC architectures</strong> via GitHub or your favorite forge, while keeping trace of every setup and provisioning processes executed. You can think of <code>meshroom up</code> as the cyber mesh equivalent of Infrastructure-as-code's <code>terraform apply</code> or containerized stack's <code>docker compose up</code>.</p>
+<p>When your SOC grows to dozens of interoperated products, it becomes hard to visualize where data and controls flow between them. Meshroom provides an easy to use graph model documenting:</p>
+<ul>
+<li>all capabilities exposed by the products you are using</li>
+<li>all available integrations they offer to other products</li>
+<li>all the active connections (know as <code>Plugs</code> within Meshroom) between products (aka <code>producer</code>/<code>consumer</code> and <code>trigger</code>/<code>executor</code> relationships)</li>
+</ul>
+<h3 id="as-a-developer-painless-developer-experience-to-build-and-publish-custom-product-additions">As a developer : painless developer experience to build and publish custom product additions<a class="headerlink" href="#as-a-developer-painless-developer-experience-to-build-and-publish-custom-product-additions" title="Permanent link">&para;</a></h3>
+<p>Many cybersecurity platforms offer extensible capabilities via <strong>plugins</strong>, custom formats, custom rules, custom actions, <em>etc</em>. Here again, there's no accepted standard and each vendor defines its own approach (YAML files, python code, no-code workflows, <em>etc</em>). Yet, products interoperability often rely on <strong>contributing custom additions</strong> to one or both ends. Of course, this scope is often badly documented, and developers are left with trial-and-error quasi-reverse ninja approaches to understand how to make product A talk to product B. In the end, you'll eventually succeed in getting a working plugin, but then face the un-coordinated maze of <strong>homologation processes</strong> each vendor mandates to make your contribution <strong>public</strong>.</p>
+<p>Meshroom helps cybersecurity vendors to expose a <strong>single standard contribution model</strong> for:</p>
+<ul>
+<li>setting up <strong>custom software additions</strong> when interoperability mandates so</li>
+<li>compiling everything into a product <strong>plugin</strong> suitable for publication</li>
+<li><strong>publishing</strong> as a PR to GitHub or other marketplaces</li>
+</ul>
+<p>Meshroom also eases the tedious "playground" phase where developers need to <strong>send</strong> test data to their trial 3rd-party instances, <strong>trigger</strong> remote commands from their workstation, <strong>watch</strong> results, make changes to their integration in an agile continous development workflow:</p>
+<ul>
+<li><code>meshroom produce</code> helps you sending data through plugged integrations</li>
+<li><code>meshroom watch</code> helps you watching data flowing through a plugged integration</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="concepts/" class="btn btn-neutral float-right" title="Concepts">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="concepts/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2025-03-31 15:38:20.123432+00:00
+-->

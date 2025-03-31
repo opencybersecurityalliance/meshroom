@@ -1,0 +1,13 @@
+.wy-nav-content {
+    max-width: 1200px !important;
+}
+
+.admonition.right {
+    float:right;
+    margin: 0px 64px;
+    background: none;
+}
+
+.admonition.right > p:first-child {
+    display: none;
+}

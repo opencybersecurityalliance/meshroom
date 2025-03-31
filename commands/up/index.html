@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>meshroom up - Meshroom</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "meshroom up";
+        var mkdocs_page_input_path = "commands/up.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../..">
+          <img src="../../logo-title.svg" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Meshroom</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../concepts/">Concepts</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../tutorial/">Tutorial</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Commands</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../add/">meshroom add</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../configure/">meshroom configure</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../create_integration/">meshroom create integration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../create_product/">meshroom create product</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../down/">meshroom down</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../execute/">meshroom execute</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../init/">meshroom init</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../plug/">meshroom plug</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../produce/">meshroom produce</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../publish/">meshroom publish</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../pull/">meshroom pull</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../remove/">meshroom remove</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../trigger/">meshroom trigger</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../unplug/">meshroom unplug</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">meshroom up</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../watch/">meshroom watch</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Meshroom</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Commands</li>
+      <li class="breadcrumb-item active">meshroom up</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="meshroom-up">meshroom up<a class="headerlink" href="#meshroom-up" title="Permanent link">&para;</a></h1>
+<div class="admonition usage">
+<p class="admonition-title">Usage</p>
+<p><strong>meshroom up</strong> [OPTIONS] [INSTANCE] [TARGET_INSTANCE] [TOPIC]
+               [[push|pull]]</p>
+</div>
+<p>Setup all declared Instances, a single Instance or a single Plug, depending on the optional parameters passed.
+Instances and Plugs are setup according to their <code>@setup</code> hooks:
+* Plugs in push mode leveraging two integrations with no <code>owns_both=True</code> hooks will setup the consumer first, then the producer
+* Plugs in pull mode leveraging two integrations with no <code>owns_both=True</code> hooks will setup the prducer first, then the consumer
+* Plugs having a <code>owns_both=True</code> hook set on one of their integrations will setup this sole integrations, since <code>owns_both=True</code> tells the hooked product is responsible for setting up the whole link without configuring anything explicit on the 3rd-party instance.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../unplug/" class="btn btn-neutral float-left" title="meshroom unplug"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../watch/" class="btn btn-neutral float-right" title="meshroom watch">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../unplug/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../watch/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

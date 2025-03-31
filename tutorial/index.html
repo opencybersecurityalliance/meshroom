@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Tutorial - Meshroom</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Tutorial";
+        var mkdocs_page_input_path = "tutorial.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../logo-title.svg" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Meshroom</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../concepts/">Concepts</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Tutorial</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#0-setup-a-meshroom-project">0. Setup a meshroom project</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1-gather-knowledge-about-existing-products">1. Gather knowledge about existing products</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-integrate-your-product">2. Integrate your product</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-create-a-mesh">3. Create a mesh</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-meshroom-up">4. Meshroom up 🎉 !</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-meshroom-down">5. Meshroom down</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-meshroom-publish">6. Meshroom publish</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-participate-into-building-a-community-driven-global-capability-graph">7. Participate into building a community-driven global capability graph</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Commands</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/add/">meshroom add</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/configure/">meshroom configure</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/create_integration/">meshroom create integration</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/create_product/">meshroom create product</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/down/">meshroom down</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/execute/">meshroom execute</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/init/">meshroom init</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/plug/">meshroom plug</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/produce/">meshroom produce</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/publish/">meshroom publish</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/pull/">meshroom pull</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/remove/">meshroom remove</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/trigger/">meshroom trigger</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/unplug/">meshroom unplug</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/up/">meshroom up</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../commands/watch/">meshroom watch</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Meshroom</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Tutorial</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="tutorial">Tutorial<a class="headerlink" href="#tutorial" title="Permanent link">&para;</a></h1>
+<p>This tutorial guides you through</p>
+<ul>
+<li>integrating a dummy product in a meshroom project's capabilities graph</li>
+<li>instantiating a mesh</li>
+<li>setting up this mesh with real product tenants</li>
+<li>playing and inspect data flowing through it</li>
+</ul>
+<p>We take an hypothetical intelligence-driven EDR called "myedr" as the examplar product to showcase the Meshroom CLI and underlying concepts.</p>
+<h3 id="0-setup-a-meshroom-project">0. Setup a meshroom project<a class="headerlink" href="#0-setup-a-meshroom-project" title="Permanent link">&para;</a></h3>
+<p>A meshroom project is a git-backed directory on your computer. Let's setup one via</p>
+<pre><code class="language-bash">meshroom init &lt;path&gt;
+cd &lt;path&gt;
+</code></pre>
+<p>This has scaffolded a local git repo with two directories: <code>products</code> and <code>instances</code></p>
+<p>We can list list our Products and Instances using</p>
+<pre><code class="language-bash">meshroom list products
+meshroom list instances
+</code></pre>
+<p>which confirms we have no products and no instances yet.</p>
+<h3 id="1-gather-knowledge-about-existing-products">1. Gather knowledge about existing products<a class="headerlink" href="#1-gather-knowledge-about-existing-products" title="Permanent link">&para;</a></h3>
+<p>In Meshroom's spirit, users may have already shared products definitions via, say, github.com, so you can browse public shared meshroom repos for products of interest to build your mesh.</p>
+<p>Imagine we want to incorporate a Sekoia.io SOC platform tenant into our mesh. We can leverage existing definitions from <a href="https://github.com/opencybersecurityalliance/meshroom/tree/master/products/sekoia">https://github.com/opencybersecurityalliance/meshroom/tree/master/products/sekoia</a>, by simply copying the subdirectory to our project's <code>products/</code> folder:</p>
+<pre><code class="language-bash">mkdir -p tmp
+curl -L -o tmp.tar.gz https://github.com/opencybersecurityalliance/meshroom/tarball/master
+tar -xzf tmp.tar.gz -C tmp
+mv tmp/*/example/products/sekoia products/sekoia
+rm -rf tmp tmp.tar.gz
+</code></pre>
+<p>Happily, the sekoia product contains <code>@pull</code> hooks, allowing us to gather from Sekoia's official catalog the whole set of integrations available between Sekoia.io and 3rd-party products (here, so-called intake formats and playbook actions). Calling</p>
+<pre><code class="language-bash">meshroom pull sekoia
+</code></pre>
+<p>yields dozen of new products along with their own capabilities to the extent of what Sekoia.io can interop with. You'd probably need to gather and pull more product knowledge to enrich those 3rd-party product definitions and reach a sufficiently large and accurate capabilities graph to start instantiating a mesh from it.</p>
+<pre><code class="language-bash">meshroom list products
+</code></pre>
+<p>now shows many products available for instanciation.</p>
+<h3 id="2-integrate-your-product">2. Integrate your product<a class="headerlink" href="#2-integrate-your-product" title="Permanent link">&para;</a></h3>
+<p>This tutorial assumes we're a vendor of a new product that didn't get a meshroom definition yet. So let's create it from scratch, or better, using one of the provided product capabilities templates, found under <a href="https://github.com/opencybersecurityalliance/meshroom/tree/master/meshroom/templates/products">https://github.com/opencybersecurityalliance/meshroom/tree/master/meshroom/templates/products</a></p>
+<pre><code class="language-bash">meshroom create product myedr --from edr
+</code></pre>
+<p>This created and scaffolded the folder <code>products/myedr</code>, with a draft definition.yaml and several other files. Of course, this is not enough to fully express myedr's full interop surface, but can be considered as a good starting point:</p>
+<ul>
+<li>some typical capabilities of a standard EDR have been automatically added to <code>definition.yaml</code> (such as an events consumer, an alerts producer, a containment executor, <em>etc</em>).</li>
+<li>some basic hooks have been set in boilerplate files, ready for your own implementation to define how the myedr instance can be remotely provisioned and controlled.</li>
+</ul>
+<p>Since myedr is advertised as intelligence-driven, let's add three more capabilities, by editing its <code>definition.yaml</code>:</p>
+<pre><code class="language-yaml">consumes:
+   threats:
+      - format: stix
+        mode: push
+produces:
+   threats:
+      - format: stix
+        mode: pull
+executes:
+   search_threat:
+      - {}
+</code></pre>
+<p>We just added:</p>
+<ul>
+<li>a capability to <strong>consume</strong> the <code>threats</code> topic in <strong>push</strong> mode (meaning that producers will actively call our myedr instance to provide original CTI data to it), following the well-known STIX standard.</li>
+<li>a capability to <strong>produce</strong> <code>threats</code> in <strong>pull</strong> mode (that is, 3rd-parties will have to query an API GET endpoint to obtain CTI from our myedr instance), again as STIX bundles.</li>
+<li>an <strong>execution</strong> capability for <code>search_threat</code> action, which by default works in <strong>push</strong> mode (triggers must make an active call to this executor to perform the action). No particular format constraint is set for it, 3rd-parties will have to figure out the expected payload to send to get a successful search.</li>
+</ul>
+<p>Let's assume that while the CTI production and consumption APIs are builtin in myedr, the threat search isn't available via API out-of-the-box. But myedr exposes a plugin mechanism to add such new external surface. We can then implement a <code>@setup</code> hook that will leverage this mechanism to automate the setup of our search_threat capabilities on a live myedr instance:</p>
+<ul>
+<li>Create the <code>products/myedr/search_threat.py</code> file containing</li>
+</ul>
+<pre><code class="language-py">from meshroom.decorators import setup_executor
+from meshroom.model import Integration, Plug, Instance
+
+@setup_executor(&quot;search_threat&quot;)
+def setup_threat_search_api_via_myedr_plugin(integration: Integration, plug: Plug, instance: Instance):
+    some_value = instance.settings.get(&quot;some_setting&quot;)
+    some_secret = plug.get_secret(&quot;SOME_SECRET&quot;)
+    api_key = instance.get_secret(&quot;API_KEY&quot;)
+    raise NotImplementedError(&quot;Implement the setup mechanism here&quot;)
+</code></pre>
+<p>We'll certainly have to implement the actual python logic (using HTTP requests libraries, or whatever is required to programmatically automate the configuration of a myedr plugin).</p>
+<p>Notice the <code>.get_secret</code> methods on the Plug and Instance objects: they allow you to securely store and retrieve sensitive configuration tokens to remotely operate your Instances. Integrations, Instances and Plugs can define arbitrary settings in their <code>definition.yaml</code> so that users get prompted for necessary values upon <code>meshroom up</code>, interactively.</p>
+<p>Let's add those required secrets and settings to our product's <code>definition.yaml</code></p>
+<pre><code class="language-yaml">settings:
+  - name: API_KEY
+    secret: true
+  - name: some_setting
+    default: whatever
+</code></pre>
+<p>This tells meshroom that any Instance of our myedr Product will require an API_KEY, stored securely, and an optional <code>some_setting</code> configuration parameter, prompted upon <code>meshroom add</code> when creating the said Instances.</p>
+<p>We may also require settings specific for myedr to interop with a particular 3rd-party, say, Sekoia.io</p>
+<p>Let's create a suitable Integration for that:</p>
+<pre><code class="language-bash">meshroom create integration myedr sekoia search_threat executor
+</code></pre>
+<p>This created a <code>search_threat_executor.yaml</code> manifest under <code>products/myedr/integrations/sekoia/</code> to hold the integration-specific settings, in the same way we did at Product level. We can then add a <code>settings:</code> section akin to the Product's one. Upon <code>meshroom plug search_threat some_sekoia_instance some_myedr_instance</code>, because myedr has defined specific settings for the executor end of this Plug, the user we'll be prompted for necessary values.</p>
+<p>We thus demonstrated the basic concepts of:</p>
+<ul>
+<li>hooks</li>
+<li>product and integration manifests with settings</li>
+<li>how settings and secrets get prompted at <code>meshroom add</code> and <code>meshroom plug</code>. Note that you can (re-)configure those settings using <code>meshroom configure</code>, <em>e.g.</em>, when you'll instantiate your mesh on a different information system</li>
+</ul>
+<p>We can confirm the existence of our new product and integrations via</p>
+<pre><code class="language-bash">meshroom list products mye
+meshroom list integrations myedr
+</code></pre>
+<h3 id="3-create-a-mesh">3. Create a mesh<a class="headerlink" href="#3-create-a-mesh" title="Permanent link">&para;</a></h3>
+<p>We'll create a basic mesh of 2 Instances:</p>
+<ul>
+<li>a Sekoia.io instance called "mysekoia"</li>
+<li>a myedr instance called "myedr" (same name as the corresponding product)</li>
+</ul>
+<pre><code class="language-bash">meshroom add sekoia mysekoia
+meshroom add myedr
+</code></pre>
+<p>Each call will prompt you for the required secrets and settings. At this stage, nothing is submitted yet to the actual tenants, meshroom only created the <code>instances/sekoia/mysekoia/...</code> files and wrote all secrets to <code>secrets.gpg</code>, ready for calling <code>meshroom up</code></p>
+<p>Now, let's <strong>plug</strong> both products, so that mysekoia can consume myedr's events and myedr can execute mysekoia's queries for threat searches.</p>
+<pre><code class="language-bash">meshroom plug events myedr mysekoia
+meshroom plug search_threat mysekoia myedr
+</code></pre>
+<p>Oh no ! Meshroom CLI tells us that it can't find an integration for the trigger side of the second plug. Indeed, we've defined how to setup a myedr plugin to execute threat searches, but no Sekoia.io integration to actually trigger it from Sekoia.</p>
+<p>Let's fix that</p>
+<pre><code class="language-bash">meshroom create integration sekoia myedr search_threat trigger --mode=push
+</code></pre>
+<p>and confirm it worked</p>
+<pre><code class="language-bash">meshroom list integrations sekoia myedr
+</code></pre>
+<p>Contrarily to the previous call to <code>meshroom create integration</code>, this has created many files under the <code>products/sekoia/integrations/myedr/</code> folder, where we may recognize an almost complete Sekoia.io custom playbook action as one can find examples at <a href="https://github.com/SEKOIA-IO/automation-library">https://github.com/SEKOIA-IO/automation-library</a>. This integration has been automatically scaffolded because Sekoia.io's vendor has defined a <code>@scaffold</code> hook for this kind of trigger. This hook generated all the boilerplate code required to build a custom playbook action that will trigger executions on 3rd-party APIs. All we need to do is to actually implement the TODOs left in the boilerplate. We won't cover this specific business here, but once you've coded your own logic, you can call again</p>
+<pre><code class="language-bash">meshroom plug search_threat mysekoia myedr
+</code></pre>
+<p>which should now succeed !</p>
+<pre><code class="language-bash">meshroom list instances
+meshroom list plugs
+</code></pre>
+<p>should then show 2 instances and 2 plugs connecting them.</p>
+<p>We're done with the mesh creation part of this tutorial, it's now time to give it life...</p>
+<h3 id="4-meshroom-up">4. Meshroom up 🎉 !<a class="headerlink" href="#4-meshroom-up" title="Permanent link">&para;</a></h3>
+<p>Once you get a valid and satisfactory mesh of Instances and Plugs, you're ready to call</p>
+<pre><code class="language-bash">meshroom up
+</code></pre>
+<p>As for a docker compose stack, this command should be enough to setup and configure all your tenants, and connect the required interops to make them communicate according to the mesh's graph. Sometimes, <code>meshroom up</code> will prompt for additional settings and secret required for the runtime. Another similary with docker compose or terraform stacks is that <code>meshroom up</code> is idempotent: if the mesh is already up, meshroom will tell you resources are already up. If only part of them are up, meshroom will setup those who are down, <em>etc</em>.</p>
+<p>To check everything works as expected, we can use two handy commands :</p>
+<pre><code class="language-bash">meshroom produce events myedr mysekoia
+</code></pre>
+<p>and</p>
+<pre><code class="language-bash">meshroom watch events myedr mysekoia
+</code></pre>
+<p>The first one will read lines from standard input and send them through <code>myedr-[events]-&gt;mysekoia</code>'s plug, so that mysekoia can consume some test events.</p>
+<p>The second command will wait for mysekoia instance to receive those events and will print them to standard output.</p>
+<p>Those commands are available thanks to the <code>@produce</code> and <code>@consume</code> hooks implemented in Sekoia's product definition. One is responsible for the programmatic emulation of data flowing to an integration, the other is reponsible for watching data as received by the instance to assess that the plug correctly route well-formed data to the destination product.</p>
+<p><code>@produce</code> hook may be defined on both the producer and consumer side of an integration: if the producer defines a <code>@produce</code> hook it takes precedence over the consumer's one, the latter's role being to <strong>emulate</strong> data flowing to it, instead of sending data from the real producer.</p>
+<p>Similarly, the <code>@consume</code> hook may be defined by both the producer and the consumer: if the consumer defines it, it takes precedence over the producer's one, thus reflecting what was really received by the destination product, otherwise we fallback to the producer's one that only prints what is flowing out of the producer without guaranteeing that data is actually received at consumer side.</p>
+<p>Here, we left the destination product without <code>@produce</code> and <code>@consume</code> hooks, so we emulate data coming from myedr (meshroom generates this flow instead of really creating the data from myedr's output) but firmly assess this data is correctly received and parsed by mysekoia.</p>
+<h3 id="5-meshroom-down">5. Meshroom down<a class="headerlink" href="#5-meshroom-down" title="Permanent link">&para;</a></h3>
+<p>To make our mesh work, our instances have been automatically provisionned by <code>meshroom up</code> with plugins, configurations, <em>etc</em>. You may want to shutdown those capabilities and leave them in a clean state. Just call</p>
+<pre><code class="language-bash">meshroom down
+</code></pre>
+<p>and your mesh setup should have been withdrawn from your products tenants.</p>
+<p>Again, this works via hooks: your myedr product should define a <code>@teardown</code> hook taking care of programmatically cleaning the plugs.</p>
+<h3 id="6-meshroom-publish">6. Meshroom publish<a class="headerlink" href="#6-meshroom-publish" title="Permanent link">&para;</a></h3>
+<p>Finally, you may want to publicly release and share your mesh, and perhaps even contribute your developed integrations to the vendor's official integrations catalog.</p>
+<p>The first stage is to simply <strong>commit</strong> your git-backed meshroom project. By pushing it to github, every products, integrations and mesh definitions are versioned and pullable by your colleagues. They will be able to instantiate the mesh on a different information system as long as they run <code>meshroom configure ...</code> to adapt the settings and secrets to their own environment. Of course, because secrets are stored in a GPG-encrypted file, you may also share it with colleagues using their GPG key, as you would do with a vault or secrets bundle sharing utility.</p>
+<p>The second stage is to promote your integration as public contributions to the vendor's official catalog. For that matter, the vendor must have defined suitable <code>@publish</code> hooks for the topics of interest, so that the integration is turned into a valid package for uploading. In this tutorial, we know that Sekoia vendor has defined a <code>@publish</code> hook for triggers, that publishes individual triggers as standalone sekoia.io playbook modules for use in their playbook automation workflows. Simply call</p>
+<pre><code class="language-bash">meshroom publish sekoia myedr search_threats
+</code></pre>
+<p>and you should get a Github PR to <a href="https://github.com/SEKOIA-IO/automation-library">https://github.com/SEKOIA-IO/automation-library</a> ready for review by Sekoia.io's integrators.</p>
+<p>By the way, you can also play the trigger from command line via</p>
+<pre><code class="language-bash">meshroom trigger search_threats mysekoia myedr -p &lt;param&gt;=&lt;value&gt; ...
+</code></pre>
+<p>to test the trigger/executor relationship, as long as the vendor has defined a <code>@trigger</code> hook for the topic (or a generic one of course, which is the case for sekoia.io playbook actions).</p>
+<h3 id="7-participate-into-building-a-community-driven-global-capability-graph">7. Participate into building a community-driven global capability graph<a class="headerlink" href="#7-participate-into-building-a-community-driven-global-capability-graph" title="Permanent link">&para;</a></h3>
+<p>Naturally, it would be sad if your integration work remains under your sole ownership.</p>
+<p>Sharing with friends and colleague is something, but contributing to the global capability graph hosted at github.com/oxa/TODO would make everyone so happy !</p>
+<p>Thank you in advance and happy meshrooming ! 👋</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../concepts/" class="btn btn-neutral float-left" title="Concepts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../commands/add/" class="btn btn-neutral float-right" title="meshroom add">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../concepts/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../commands/add/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
