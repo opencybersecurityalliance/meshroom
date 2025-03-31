@@ -1,6 +1,6 @@
 # Meshroom
 
-A command-line tool to build and manage Cybersecurity Mesh Architectures (CSMA).
+A command-line tool to build and manage Cybersecurity Mesh Architectures (CSMA), initiated by the OXA sub-project under the [Open Cybersecurity Alliance (OCA)](https://opencybersecurityalliance.org/)
 
 ## Overview
 As defined by Gartner, a [Cybersecurity Mesh Architecture](https://www.gartner.com/en/information-technology/glossary/cybersecurity-mesh) is a graph of interoperated cybersecurity services, each fulfilling a specific functional need (SIEM, EDR, EASM, XDR, TIP, *etc*).
