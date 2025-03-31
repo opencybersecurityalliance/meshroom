@@ -1,0 +1,21 @@
+name: {{NAME}}
+
+tags:
+  - XDR
+  - Extended Detection and Response
+
+produces:
+  events:
+    - {}
+  alerts:
+    - {}
+  threats:
+    - {}
+
+consumes:
+  assets:
+  - {}
+  iocs:
+  - {}
+  detection_rules:
+  - {}

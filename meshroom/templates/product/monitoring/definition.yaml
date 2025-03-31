@@ -1,0 +1,11 @@
+name: {{NAME}}
+
+tags:
+  - Monitoring
+  - Co-managed Monitoring
+
+produces:
+  events:
+    - {}
+  alerts:
+    - {}

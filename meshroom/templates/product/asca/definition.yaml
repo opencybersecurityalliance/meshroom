@@ -1,0 +1,19 @@
+name: {{NAME}}
+
+description: |
+  Specifically, ASCA helps with the following three phases of CTEM:
+  - Discovery: Identify misconfiguration of technical security controls and correlate it with asset, vulnerability and exposure data from integrated exposure assessment sources.
+  - Prioritization: Overlay the control context with the asset, vulnerability and exposure context from adjacent exposure assessment tools to effectively prioritize exposures.
+  - Mobilization: Provide specific mitigation guidance for implementation in technical security controls. Example mitigations include configuration change, custom detection rule and virtual patch.
+
+tags:
+  - ASCA
+  - Automated security control assessment
+
+produces:
+  misconfigurations:
+    - {}
+
+executes:
+  scan:
+    - {}

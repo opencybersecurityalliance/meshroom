@@ -1,0 +1,24 @@
+name: myproduct
+tags: []
+settings:
+  - name: API_KEY
+    secret: true
+  - name: API_URL
+    default: https://myproduct.com/api
+  - name: region
+    default: us-east-1
+consumes:
+  detection_rules:
+    - format: sigma
+      url: https://myproduct.com/api/detection_rules/sigma
+      method: POST
+produces:
+  alerts:
+    - mode: pull
+      url: https://myproduct.com/api/alerts
+      method: GET
+  intelligence:
+    - mode: pull
+      url: https://myproduct.com/api/intelligence
+      method: GET
+      format: stix

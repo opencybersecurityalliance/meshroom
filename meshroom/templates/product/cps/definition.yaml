@@ -1,0 +1,11 @@
+name: {{NAME}}
+
+description: |
+  Cyber-physical systems (CPS) are engineered to orchestrate sensing, computation, control, networking and analytics in order to interact with the physical world.
+  They underpin all smart and connected efforts, from operational technology in critical infrastructure to smart buildings, transportation, medical devices,
+  and all upcoming robotics and automation efforts. When secure, CPS enable safe, real-time, reliable, resilient and adaptable performance.
+  When not secure, they can lead to halted operations or worse, to human safety and environmental issues.
+
+tags:
+  - CPS
+  - Cyber-physical systems

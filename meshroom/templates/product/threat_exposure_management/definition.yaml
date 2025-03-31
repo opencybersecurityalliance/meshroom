@@ -1,0 +1,46 @@
+name: {{NAME}}
+description: |
+  Visibility of exposures alone can be delivered by many currently available tools. However, this is not enough. Threat exposure awareness must:
+  1. Pair with business context impact
+  2. Lead to exposure prioritization
+  3. Convince responsible IT and development teams of the risk to the business 4. Ultimately deliver timely coordination for remediation of the exposure
+
+  Proactive threat exposure management should include:
+  - Programmatic approach that focuses on remediation
+  - Integrated tech stack that enhances human involvement or, if possible, automates scoping, discovery, prioritization, validation and mobilization
+  - Actionable remediation guidance options
+  - Integration with threat detection, investigation and response insight to exposures
+
+  Gartner recommends selecting a platform that provides:
+  1. Asset scoping (identity, device, cloud, applications, digital assets)
+  2. Asset criticality (business context)
+  3. Attack path discovery/mapping
+  4. Risk-based exposure prioritization
+  5. Exploitation validation
+  6. Remediation guidance
+  7. Mobilization coordination for issues out of service provider reach or authority
+
+  When trying to find the right scoping for a CTEM program pilot, good candidates include:
+  - External attack surface — It combines a relatively narrow scope (for most organizations) and a growing ecosystem of tools.
+  - SaaS security posture — While tool maturity is still lacking, increasing remote workforce led to more critical business data hosted on SaaS, ensuring easier communication about the risks.
+  Later cycles could expand to include:
+  - Digital risk protection which adds greater visibility into the attack surface.
+  - Dark and deep web sources to identify potential threats to critical assets and provide contextual information on threat actors and the tactics and processes utilized to conduct malicious activity.
+
+
+tags:
+  - Threat Exposure Management
+
+produces:
+  assets:
+    - {}
+  domains:
+    - {}
+  vulnerabilities:
+    - {}
+  threats:
+    - {}
+  alerts:
+    - {}
+  events:
+    - {}

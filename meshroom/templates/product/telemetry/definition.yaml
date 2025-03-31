@@ -1,0 +1,13 @@
+name: {{NAME}}
+
+tags:
+  - Telemetry
+
+
+produces:
+  events:
+    - {}
+  alerts:
+    - {}
+  threats:
+    - {}

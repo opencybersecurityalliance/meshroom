@@ -1,0 +1,13 @@
+site_name: Meshroom
+theme:
+  name: readthedocs
+  highlightjs: true
+  favicon: logo.svg
+  logo: logo-title.svg
+  title: Meshroom
+extra_css:
+  - style.css
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true

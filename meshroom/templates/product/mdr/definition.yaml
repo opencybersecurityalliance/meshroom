@@ -1,0 +1,11 @@
+name: {{NAME}}
+
+tags:
+  - MDR
+  - Managed Detection and Response
+
+produces:
+  events:
+    - {}
+  alerts:
+    - {}

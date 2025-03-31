@@ -1,0 +1,52 @@
+name: {{NAME}}
+description: |
+  https://www.gartner.com/document-reader/document/5666255?ref=solrAll&refval=433164710
+  Mandatory Features
+  The mandatory features for services in this market include:
+  Indicators of compromise (IoCs), including malicious or suspicious ratings, such as IP addresses, URLs, domains and file hashes.
+  Direct technical intelligence collection or research, enabling the consumer to tailor collection or search functionality for relevant IoCs.
+  Configuration of alerting thresholds based on predefined criteria.
+  Machine-to-machine integrations to either push or pull intelligence artifacts through to multiple solutions.
+  Out-of-the-box enrichments to IoCs, such as tentative attribution, geolocation data and registration information.
+  An interactive user portal with built-in analysis functionalities such as contextualized dashboards, configurable alerting and search features.
+  IOC scoring or risk rating as a way to illustrate confidence in maliciousness or suspiciousness.
+  Investigative support options, which may include ad hoc requests-for-information, longer-term analysis or recurring analyst augmentation.
+
+  Common Features
+  The common features for this market include:
+  TTP enrichment of IOCs, provided typically in two formats: threat actor profiles and MITRE ATT&CK enrichments.
+  Malware sandboxing, providing the ability to dynamically extract IoCs from malware samples by detonating the malware in a provider (cloud or on-premises) sandbox.
+  Vulnerability intelligence tailored for vulnerability prioritization, often highlighting actively exploited vulnerabilities and the associated IoCs.
+  Finished intelligence reporting, including technical/tactical analysis reports as well as operational and strategic intelligence products.
+  Visual representation of weighted connections between IOCs and threat actors
+  Network telemetry enrichments such as passive DNS, sinkhole traffic and global sensor network telemetry.
+  Industry-specific curation such as advanced search filters, industry-specific query parameters and dashboards.
+  Built-in priority intelligence requirement curation.
+  Metrics reporting tailored for operational governance.
+  Forensic analysis support.
+  Support for multi-format sharing methods across industry communities
+
+  Optional
+  Tactics, techniques and procedures (TTPs) enrichment of IOCs, provided typically in two formats: threat actor profiles and MITRE ATT&CK enrichments.
+  Malware sandboxing, providing the ability to dynamically extract IOCs from malware samples by detonating the malware in a provider (cloud or on-premises) sandbox.
+  Vulnerability intelligence tailored for vulnerability prioritization, often highlighting actively exploited vulnerabilities and the associated IOCs.
+  Finished intelligence reporting including technical/tactical analysis reports as well as operational and strategic intelligence products.
+  Node graph visualizations such as link-end analysis graphs and built-in Maltego Transforms.
+  Network telemetry enrichments such as passive DNS, sinkhole traffic and global sensor network telemetry.
+  Industry-specific curation such as advanced search filters, industry-specific query parameters, and dashboards.
+  Built-in priority intelligence requirement curation.
+  Metrics reporting tailored for operational governance.
+  Support with forensic analysis.
+  Vulnerability intelligence.
+  Supporting sharing across industry communities.
+
+tags:
+  - TIP
+  - Threat Intelligence Platform
+
+
+produces:
+  threats:
+    - {}
+  iocs:
+    - {}

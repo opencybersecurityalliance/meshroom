@@ -1,0 +1,17 @@
+name: {{NAME}}
+description: |
+  Identity Threat Detection and Response (ITDR) is a critical component of a comprehensive security program.
+  ITDR helps organizations to detect and respond to identity-related threats before they cause significant damage.
+
+tags:
+  - ITDR
+  - Identity Threat Detection and Response
+
+
+produces:
+  events:
+  - {}
+  assets:
+  - {}
+  alerts:
+  - {}

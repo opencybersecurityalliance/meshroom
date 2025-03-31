@@ -1,0 +1,79 @@
+name: {{NAME}}
+
+description:
+  The solution implements agent-based protection using multiple security techniques, such as static and behavioral analysis and attack surface reduction.
+  The solution implements all its prevention, detection, and response functionality using a single agent installed on the endpoint.
+  The solution can automatically invoke a native malware response action, such as deleting or quarantining files, blocking or killing processes, and isolating compromised endpoints.
+  The solution provides a severity rating, a process tree, and a mapping of events and alerts to MITRE ATT&CK tactics, techniques and procedures to aid root cause analysis and remediation.
+  The solution provides support for new versions of major operating systems, including Windows, macOS and Linux, within 90 days of the OS release.
+  The solution provides a cloud-based, SaaS-style, multitenant security analytics and management infrastructure that is required to be maintained by the EPP vendor.
+  The solution stores endpoint telemetry and detection events in its management infrastructure for at least 30 days, with the ability to extend or forward to other long-term storage.
+  The solution natively integrates with vendor-owned or third-party security controls, such as identity protection, email security, security service edge and workload protection.
+
+tags:
+  - EDR
+  - Endpoint detection and response
+settings:
+  - name: API_KEY
+    secret: true
+  - name: API_URL
+
+produces:
+  events:
+    - {}
+  alerts:
+    - {}
+
+executes:
+  # OpenC2 actuator profile (see https://github.com/oasis-tcs/openc2-ap-er/blob/working/oc2edr.md)
+  scan:
+    - {}
+  deny:
+    - format: path
+    - format: hash
+      description: Add a hash to the blocklist
+      url: https://{{name}}.com/api/deny/:endpoint
+      method: POST
+    - format: domain
+  allow:
+    - format: path
+    - format: hash
+    - format: domain
+  contain:
+    - format: endpoint
+      description: Isolate an endpoint
+      url: https://{{name}}.com/api/isolate/:endpoint
+      method: POST
+    - format: path
+      description: Isolate a file (quarantine)
+      url: https://{{name}}.com/api/isolate/file/:path
+      method: POST
+    - format: account
+      description: Isolate an account
+      url: https://{{name}}.com/api/isolate/account/:account
+      method: POST
+  start:
+    - format: process
+      description: Start a process
+      url: https://{{name}}.com/api/run/:endpoint/:process
+      method: POST
+  stop:
+    - format: process
+      description: Kill a process
+      url: https://{{name}}.com/api/kill/:endpoint/:process
+      method: POST
+  restart:
+    - format: service
+      description: Restart a service
+      url: https://{{name}}.com/api/restart/:endpoint/:service
+      method: POST
+    - format: endpoint
+      description: Restart an endpoint
+      url: https://{{name}}.com/api/restart/:endpoint
+      method: POST
+
+  download:
+    - format: path
+      description: Download a file from an endpoint
+      url: https://{{name}}.com/api/download/:endpoint/:path
+      method: POST

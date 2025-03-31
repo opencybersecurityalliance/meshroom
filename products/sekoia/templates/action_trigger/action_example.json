@@ -1,0 +1,25 @@
+{
+    "description": "A Sekoia.io example action that pull 10 last published known exploited vulnerabilities from https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+    "docker_parameters": "example_action",
+    "uuid": "{{UUID}}",
+    "name": "{{NAME}}",
+    "arguments": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {},
+        "secrets": [],
+        "title": "Example action",
+        "type": "object"
+    },
+    "results": {
+        "properties": {
+            "vulnerabilities": {
+                "description": "resulting latest 10 known exploited vulnerabilities",
+                "type": "object"
+            }
+        },
+        "required": [
+            " status"
+        ],
+        "type": "object"
+    }
+}

@@ -1,0 +1,47 @@
+name: {{NAME}}
+description: |
+  Must-Have Capabilities
+  The must-have capabilities of this market include:
+  - Both inline (via identity-aware proxy supporting managed and unmanaged devices)
+  and out-of-band (via API) protection of in-use SaaS apps including adaptive access,
+  encrypted traffic visibility and control, data loss prevention (DLP), malware
+  protection and threat prevention.
+  - Adaptive and granular access (controlled by identity and context) to private and
+  SaaS applications by both agent and agentless methods, and from managed and
+  unmanaged devices.
+  - Integration with identity providers for identity context and validation.
+
+  Standard
+  The standard capabilities of this market include:
+  - Ability to apply controls consistently across multiple network and application
+  destinations.
+  - Support for managing and securing traffic from common endpoints (such as
+  Windows, macOS, iOS and Android devices).
+  - Integration with key enterprise technologies such as security information and event
+  management (SIEM), extended detection and response (XDR), SD-WAN, and other
+  adjacent technologies.
+  - Support for published and documented APIs that are accessible to the customer and
+  that allow automation of common tasks and integration with other security
+  platforms.
+  - Curated, managed, and risk-scored catalog of SaaS applications.
+  - Support for controlled access from managed and unmanaged devices.
+
+  Optional Capabilities
+  The optional capabilities of this market include:
+  - Control over all ports and protocols.
+  - Remote browser isolation (RBI) to enhance security across all network destinations
+  and channels.
+  - SaaS security posture management for visibility and remediation of SaaS
+  configurations and visibility into SaaS plug-in applications.
+  - Continuous adaptive access controls across all channels based on initial connection
+  status and any change in state during connection.
+  - Read, write and act upon labels from common data classification platforms.
+  - Embedded user entity behavior analytics (UEBA) to provide automated detection and
+  response for anomalous and risky device and user behaviors.
+  - Advanced data protection capabilities such as redaction, tombstoning, and on-the-fly
+  encryption (both in-line and out-of-band) and advanced data detection capabilities
+  such as exact data matching (EDM), optical character recognition (OCR) and
+  machine learning (ML) classifiers.
+
+tags:
+  - Security Service Edge
