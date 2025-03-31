@@ -1,0 +1,23 @@
+name: {{NAME}}
+
+description:
+  https://www.gartner.com/document-reader/document/5666255?ref=solrAll&refval=433164710
+  However, Gartner predicts that EASM capabilities will be assimilated into other security solutions (i.e., DRPS, TI, vulnerability management, exposure assessment and adversarial exposure validation) in the near future, and may no longer be a stand-alone market in the next three to five years.
+
+  Discovery of external, digital assets (on-premises and cloud) typically identifying Internet Protocol version 4 (IPv4) assets, web applications, domains and Secure Sockets Layer (SSL) certificates.
+  Enumeration of software vulnerabilities and security weaknesses for remediation prioritization, typically using discoverability and exploitability as factors for risk scoring.
+  TI attack surface enrichments, adding the relevant attributes associated with actively exploited vulnerabilities.
+  Support/advisory on remediation to exposures identified.
+
+
+tags:
+  - EASM
+  - External Attack Surface Management
+
+produces:
+  vulnerabilities:
+  - {}
+  assets:
+  - {}
+  domains:
+  - {}

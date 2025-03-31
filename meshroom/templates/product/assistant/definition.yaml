@@ -1,0 +1,30 @@
+name: {{NAME}}
+
+description: |
+  Mandatory Features
+  The mandatory features for this market include:
+  - Code completion from natural language (e.g., comment).
+  - Multiline, fill-in-the-middle code completion with the ability to plug integrations for multiple code editors.
+  - Ability to use the code assistant in more than one vendor ecosystem.
+  - Guarantee that base models will not be trained on customer code or documentation
+  (excluding approved fine-tuning).
+  - Conversational chat interface integrated into the development environment.
+  Common Features
+  The common features for this market include:
+  - On-premises or private cloud instance.
+  - Analytics dashboards that track user adoption rates, code acceptance rates and other metrics to measure impact.
+  - Support for multiple natural languages (such as English, Spanish, Hindi, Chinese, etc.).
+  - Code completion in a terminal (command line interface).
+  - Trained on multiple programming languages, with Java, JavaScript, Python and C#
+  as a minimum.
+  - Customization to enterprise codebase.
+  - Filters for biased code, explicit language and images.
+  - Ability to cite public source projects for generated code fragments that match training data.
+
+tags:
+  - AI
+  - Cybersecurity Assistant
+
+executes:
+  prompt:
+  - {}

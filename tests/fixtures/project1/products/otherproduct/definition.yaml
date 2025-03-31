@@ -1,0 +1,10 @@
+name: otherproduct
+tags: []
+produces:
+  stuff:
+    - mode: pull
+      url: https://p.com/api/stuff
+      method: GET
+      format: json
+  events:
+    - mode: push

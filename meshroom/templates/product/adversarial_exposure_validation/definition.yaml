@@ -1,0 +1,19 @@
+name: {{NAME}}
+
+description: |
+  Adversarial exposure validation (AEV) is a process that helps organizations to validate the effectiveness of their security controls against real-world threats.
+  AEV is a continuous process that helps organizations to identify and mitigate security vulnerabilities before they are exploited by attackers.
+  AEV is a key component of a comprehensive security program and helps organizations to protect their critical assets from cyber threats.
+
+tags:
+  - Adversarial Exposure Validation
+
+produces:
+  vulnerabilities:
+    - {}
+  assets:
+    - {}
+
+executes:
+  scan:
+    - {}

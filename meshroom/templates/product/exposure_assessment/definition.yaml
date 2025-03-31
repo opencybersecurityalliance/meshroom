@@ -1,0 +1,25 @@
+name: {{NAME}}
+description: |
+  CTEM Is Not a Tool, It’s a Program
+  Organizations in the process of starting their cybersecurity mesh architecture (CSMA)
+  journey will recognize a shared philosophy. As the CTEM program matures, it becomes a
+  key source for the security intelligence layer of the CSMA design (for more on CSMA, see
+  How to Start Building a Cybersecurity Mesh Architecture).
+  Sources to participate to CTEM:
+  - EASM
+  - SaaS security posture
+  - DRPS
+  - Dark and deep web sources
+
+tags:
+  - Exposure Assessment Platform
+
+produces:
+  vulnerabilities:
+    - {}
+  assets:
+    - {}
+
+executes:
+  scan:
+    - {}

@@ -1,0 +1,20 @@
+name: {{NAME}}
+
+description:
+  https://www.gartner.com/document-reader/document/5666255?ref=solrAll&refval=433164710
+  Third-party risk assessments, geared toward evaluating the risks associated with an entity’s supply chain based on threat intelligence activity.
+  Domain abuse monitoring, typically for threats associated with customer domains, such as typosquatting and phishing.
+  Dark web services that monitor the deep and dark web for mentions related to the customer organization. Typical use cases are data leakage, fraud and threat actor attribution.
+  Social media monitoring for violation of social media policies, account takeover, VIP/executive protection and sentiment analysis.
+  Takedown services for the remediation of DRPS findings such as illicit domain/website removals and hijacked account revocations.
+
+tags:
+  - DRP
+  - DRPS
+  - Digital Risk Protection
+  - Digital Risk Protection Service
+
+
+produces:
+  assets:
+    - {}

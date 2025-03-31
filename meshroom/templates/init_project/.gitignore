@@ -1,0 +1,4 @@
+*.pyc
+__pycache__
+*.gpg
+/mirrors/

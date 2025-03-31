@@ -1,0 +1,4 @@
+uuid: "{{UUID}}"
+name: "{{NAME}}"
+slug: "{{NAME}}"
+description: "{{NAME}}"

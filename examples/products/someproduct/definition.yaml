@@ -1,0 +1,5 @@
+name: "someproduct"
+description: "This is a description of SomeProduct."
+produces:
+  events:
+    - mode: pull

@@ -1,0 +1,15 @@
+name: {{NAME}}
+description: |
+  Digital forensics and incident response (DFIR) is a critical component of a comprehensive security program.
+  DFIR helps organizations to identify, contain, and remediate security incidents before they cause significant damage.
+  DFIR is a key source of security intelligence and helps organizations to protect their critical assets from cyber threats.
+
+tags:
+  - DFIR
+  - Digital Forensics and Incident Response
+
+produces:
+  threats:
+    - {}
+  iocs:
+    - {}

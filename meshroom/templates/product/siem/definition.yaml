@@ -1,0 +1,67 @@
+name: {{NAME}}
+description: |
+  Must-Have Capabilities
+  The must-have capabilities for this market include:
+  - Collection of infrastructure details and security-relevant data from a wide range of
+  assets located on-premises and/or in cloud infrastructure.
+  - Ability for end-users to self-develop, modify and maintain threat detection use cases
+  utilizing correlation-, analytic- and signature-based methods.
+  - Provide SIEM vendor content and facility for client-created content, in areas
+  including: analytics, data normalization, collection and enrichment.
+  - Provision of case management and support of incident response activities.
+  - Report generations to support business, compliance and audit needs as needed.
+
+  Standard Capabilities
+  The standard capabilities for this market include:
+  - Storing of essential security event data long term and making it available for
+  searching
+  - Allow for the collection of event data from disparate event sources, using multiple
+  mechanisms (log stream, API, file processing) for the purposes of threat detection
+  use cases, reporting and incident investigation
+  - Multiple deployment options to include on-premises, cloud-hosted, cloud-native or
+  SaaS
+  - Normalization, enrichment and risk-score data from third-party systems
+  - Orchestration and automation of tasks and workflows to enhance investigations and
+  limit the impact of incidents
+  - Fully featured security orchestration automation response (SOAR) functionality
+  - Advanced analytic capabilities using user entity behavior analytics (UEBA), data
+  sciences (i.e., supervised and unsupervised machine learning, deep
+  learning/recurrent neural networks)
+  - Threat intelligence platform (TIP) capabilities to manage intelligence and supply
+  contextual information about threats
+
+  Optional Capabilities
+  The optional capabilities for this market include:
+  - Platforms enabling clients to subscribe to threat content and facilitate integration
+  with third-party technologies, To include app stores, marketplaces and integrations
+  - Federated search into diverse environments
+  - Decentralized search functionality to query events outside the SIEM data repository
+  and to pull in additional enriching information where appropriate
+  - Complementary technologies, often in the form of endpoint detection and response
+  (EDR), network detection and response (NDR)
+  - Data lake platform integration for storage
+  - Storing of essential security event data long term and make it available for
+  searching
+
+tags:
+  - SIEM
+  - Security Information and Event Management
+
+
+produces:
+  events:
+    - {}
+  alerts:
+    - {}
+  threats:
+    - {}
+
+consume:
+  detection_rules:
+    - {}
+  iocs:
+    - {}
+
+executes:
+  search:
+    - {}

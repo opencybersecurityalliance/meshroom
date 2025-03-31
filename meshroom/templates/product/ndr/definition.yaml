@@ -1,0 +1,33 @@
+name: {{NAME}}
+description: |
+  NDR must:
+  - Deliver, via physical or virtual sensors, form factors compatible with on-premises and cloud networks to analyze raw network packet traffic or traffic flows (for example, IP flow information). NDR must also monitor north-south traffic (as it crosses the perimeter) and east-west traffic (as it moves laterally throughout the network).
+  - Model normal network traffic and highlight unusual traffic activity that falls outside the normal range. NDR must also provide detection based on behavioral techniques (non-signature-based detection), including machine learning (ML) and advanced analytics that detect network anomalies.
+  - Aggregate individual alerts into structured incidents to facilitate threat investigation, and provide automatic or manual response capabilities to react to the detection of malicious network traffic.
+  - Include traditional detection techniques, such as intrusion detection and prevention system (IDPS) signatures, rule-based heuristics or threshold-based alerts
+  - Automate responses, such as host containment (through integration) or traffic blocking, directly or through integration with other cybersecurity tools.
+  - Detect threats using Intelligence feeds whether internally or externally sourced.
+
+  Common Features
+  Optional capabilities for this market include:
+  - Monitoring and analyzing traffic in IaaS environments
+  - SaaS API connectors to analyze events and user activities
+  - Log ingestion, investigation and response capabilities that enable SOC analysts to use the NDR console as the primary facility to perform operational duties and threat hunting in lieu of alternative platforms such as SIEM or extended detection and response (XDR)
+  - Metadata enrichment at the time of collection or during event analysis
+  - The ability to perform retroactive and forensics analysis based on netflow data, but
+  also using scalable full-packet capture (PCAP) with long-term data retention
+  - AI-based search assistants enabling accelerated threat hunting and providing actionable insights
+  - Native integration with EDR and SIEM
+  - Maintaining a low false-positive rate, after initial tuning, to become a trustable
+  source of insight and support automated response use cases
+
+tags:
+  - NDR
+  - Network Detection and Response
+
+
+produces:
+  events:
+    - {}
+  alerts:
+    - {}

@@ -1,0 +1,15 @@
+name: {{NAME}}
+tags:
+  - WAF
+  - Web Application Firewall
+settings:
+  - name: API_KEY
+    secret: true
+  - name: API_URL
+
+
+produces:
+  events:
+    - {}
+  alerts:
+    - {}

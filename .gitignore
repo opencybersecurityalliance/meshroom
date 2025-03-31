@@ -1,0 +1,11 @@
+dist/
+.mypy_cache
+__pycache__
+node_modules
+mirrors/
+*.gpg
+.pytest_cache/
+tests/data
+/tests/e2e/data/
+/.vscode
+*.pyc

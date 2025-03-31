@@ -1,0 +1,34 @@
+name: Publish to PyPI
+on:
+  workflow_run:
+    workflows: ["Release"]
+    types:
+      - completed
+
+jobs:
+  build-and-publish:
+    name: Publish to PyPI
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/meshroom
+
+    permissions:
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Poetry
+        run: pip install poetry
+
+      - name: Poetry Build
+        run: poetry build
+
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1

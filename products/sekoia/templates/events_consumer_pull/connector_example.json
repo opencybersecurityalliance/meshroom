@@ -1,0 +1,31 @@
+{
+    "description": "A Sekoia.io connector is a daemon that collects events from a 3rd-party cloud service and sends them to the Sekoia.io platform",
+    "docker_parameters": "example_connector",
+    "name": "{{NAME}}",
+    "arguments": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "properties": {
+            "frequency": {
+                "type": "integer",
+                "description": "Batch frequency in seconds",
+                "default": 60
+            },
+            "intake_server": {
+                "description": "Server of the intake server (e.g. 'https://intake.sekoia.io')",
+                "default": "https://intake.sekoia.io",
+                "type": "string"
+            },
+            "intake_key": {
+                "description": "Intake key to use when sending events",
+                "type": "string"
+            }
+        },
+        "required": [
+            "intake_key"
+        ],
+        "secrets": [],
+        "title": "Example connector",
+        "type": "object"
+    },
+    "uuid": "{{UUID}}"
+}
