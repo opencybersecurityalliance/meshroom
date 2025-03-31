@@ -14,7 +14,7 @@
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/release/python-3120/)
 [![Python 3.12](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/downloads/release/python-3130/)
 
-A command-line tool to build and manage Cybersecurity Mesh Architectures (CSMA), initiated by the OXA project.
+A command-line tool to build and manage Cybersecurity Mesh Architectures (CSMA), initiated by the OXA sub-project under the [Open Cybersecurity Alliance (OCA)](https://opencybersecurityalliance.org/)
 
 See [presentation slides](https://opencybersecurityalliance.github.io/meshroom/presentation-slides.pdf) for in-depth introduction, and [https://opencybersecurityalliance.github.io/meshroom](https://opencybersecurityalliance.github.io/meshroom) for public documentation.
 
