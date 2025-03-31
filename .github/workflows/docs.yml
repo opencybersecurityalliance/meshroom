@@ -8,6 +8,7 @@ on:
     paths:
       - 'docs/**'
       - 'mkdocs.yml'
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-latest
