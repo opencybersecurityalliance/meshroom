@@ -305,11 +305,11 @@ class SekoiaAPI(Session):
             terms["sekoiaio.intake.uuid"] = intake_uuid
         while True:
             evts = self.get_events(terms, earliest)["items"]
-            evts = sorted(evts, key=lambda x: datetime.fromisoformat(x["timestamp"]))
+            evts = sorted(evts, key=lambda x: datetime.fromisoformat(x["timestamp"].replace("Z", "+00:00")))
 
             # Move the timestamp cursor one millisecond after the last received event
             try:
-                earliest = (datetime.fromisoformat(evts[-1]["timestamp"]) + timedelta(milliseconds=1)).replace(tzinfo=None)
+                earliest = (datetime.fromisoformat(evts[-1]["timestamp"].replace("Z", "+00:00")) + timedelta(milliseconds=1)).replace(tzinfo=None)
             except Exception:
                 ...
 
