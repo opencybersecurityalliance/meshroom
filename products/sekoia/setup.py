@@ -55,6 +55,10 @@ def create_intake_key(integration: Integration, plug: Plug, instance: Instance):
             intake_name,
         )
 
+        info(f"ℹ️ This intake is a Syslog push datasource. To setup {integration.target_product}'s syslog forwarding, follow the instructions at:")
+        info(f"https://docs.sekoia.io/operation_center/integration_catalog/uuid/{integration.intake_format_uuid}/#instructions-on-the-3rd-party-solution")
+        info(f"Using the following intake key: {intake['intake_key']}")
+
     # Securely store the intake key
     plug.set_secret("intake_key", intake["intake_key"])
     plug.settings["intake_uuid"] = intake["uuid"]
