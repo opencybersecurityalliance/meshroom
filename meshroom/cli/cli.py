@@ -353,11 +353,13 @@ def pull(
 @click.argument("product", shell_complete=autocomplete_search(model.list_products))
 @click.argument("name", required=False)
 @click.option("--read-secret", "-s", multiple=True, help="Read a one-line secret from stdin (can be supplied multiple times)")
+@click.option("-c", "--config", multiple=True, help="Set a configuration setting, in the form 'key=value'")
 @click.option("-d", "--debug", is_flag=True, help="Print debug information and stack traces on error")
 def add(
     product: str,
     name: str | None = None,
     read_secret: list[str] = [],
+    config: list[str] = [],
     debug: bool = False,
 ):
     """Add a new Instance for a given Product"""
@@ -366,6 +368,7 @@ def add(
         _configure_instance(
             instance,
             secrets={secret: sys.stdin.readline().strip() for secret in read_secret},
+            config={k: v for k, v in (p.split("=") for p in config)},
         )
         info("✓ Instance created")
 
@@ -581,7 +584,7 @@ def publish(
         exit(1)
 
 
-def _configure_instance(t: Instance, secrets: dict[str, str] = {}):
+def _configure_instance(t: Instance, secrets: dict[str, str] = {}, config: dict[str, str] = {}):
     t.settings = t.settings or {}
     for setting in t.get_settings_schema():
         if setting.secret:
@@ -591,6 +594,9 @@ def _configure_instance(t: Instance, secrets: dict[str, str] = {}):
                 _configure_secret(t, setting)
         elif sys.stdin.isatty():  # only prompt if stdin is a tty
             t.settings[setting.name] = _prompt_setting(setting, default=t.settings.get(setting.name))
+            t.save()
+        elif setting.name in config:
+            t.settings[setting.name] = config[setting.name]
             t.save()
 
 

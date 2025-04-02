@@ -15,3 +15,4 @@ The new instance's configuration will by saved to `products/<PRODUCT>/[NAME]/con
 option | description
 --- | ---
   -s, --read-secret TEXT | Read a one-line secret from stdin (can be supplied multiple times to read several secrets, one per line)
+  -c, --config key=value | Set a configuration setting, conforming the product's definition (can be supplied multiple times to set several settings)

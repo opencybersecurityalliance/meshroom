@@ -38,6 +38,10 @@ meshroom add aws_vpc_flow_logs aws
 meshroom plug --debug events apache_http_server sekoia
 meshroom plug events aws sekoia
 
+set +e
+pass MESHROOM_HARGANGLAB_API_TOKEN | meshroom add harfanglab -c url=$(pass MESHROOM_HARFANGLAB_URL) -s api_token
+set -e
+
 meshroom up
 
 meshroom down
