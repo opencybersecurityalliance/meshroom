@@ -48,7 +48,7 @@ class Capability(Model):
     Definition of a Product's generic consumer/producer capability
     """
 
-    topic: str
+    topic: str | None = None
     role: Role
     mode: Mode = "push"
     format: str | None = None
@@ -62,7 +62,7 @@ class Capability(Model):
     def matches(self, capability: "Capability"):
         """Check if this capability matches a complementary capability (e.g., consumer/producer)"""
         return (
-            self.topic == capability.topic
+            (self.topic == capability.topic or None in (self.topic, capability.topic))
             and (sorted((self.role, capability.role)) in (["consumer", "producer"], ["executor", "trigger"]))
             and self.mode == capability.mode
             and (self.format == capability.format or None in (self.format, capability.format))
@@ -74,7 +74,7 @@ class Capability(Model):
             x.append(self.mode)
         if self.format is not None:
             x.append(self.format)
-        out = f"{self.topic} {self.role}"
+        out = f"{self.topic or '-'} {self.role}"
         if x:
             out += f" ({' '.join(x)})"
         return out
@@ -151,7 +151,7 @@ class Product(Model):
     def instances(self):
         return list(list_instances(self.name))
 
-    def add_capability(self, role: Role, topic: str, mode: Mode, format: str | None = None):
+    def add_capability(self, role: Role, topic: str, mode: Mode = "push", format: str | None = None):
         """
         Add a generic capability to the product's definition
         """
@@ -1240,7 +1240,6 @@ def plug(
         debug(f"🚫 Plug {plug}  already exists at {plug.path}")
         return plug
     except ValueError:
-        match_found = False
         producers = list(list_integrations(src.product, dst.product, topic, "producer", mode=mode, format=format))
         consumers = list(list_integrations(dst.product, src.product, topic, "consumer", mode=mode, format=format))
         triggers = list(list_integrations(src.product, dst.product, topic, "trigger", mode=mode, format=format))
@@ -1250,7 +1249,6 @@ def plug(
         for producer in producers:
             for consumer in consumers:
                 if producer.matches(consumer):
-                    match_found = True
                     if producer.owns_self and consumer.owns_self and owner in (None, "both"):
                         plug = Plug(
                             src_instance=src_instance,
@@ -1266,7 +1264,6 @@ def plug(
         for trigger in triggers:
             for executor in executors:
                 if trigger.matches(executor):
-                    match_found = True
                     if producer.owns_self and consumer.owns_self and owner in (None, "both"):
                         plug = Plug(
                             src_instance=src_instance,
@@ -1281,37 +1278,36 @@ def plug(
                         return plug
 
         # If not found, look for one integration able to setup both ends (*i.e.* having owns_both=True)
-        if match_found:
-            if owner in (None, src_instance):
-                for i in [*producers, *triggers]:
-                    kind = "trigger" if i.role == "trigger" else None
-                    if i.owns_both:
-                        plug = Plug(
-                            src_instance=src_instance,
-                            dst_instance=dst_instance,
-                            topic=topic,
-                            mode=i.mode or mode,
-                            format=i.format or format,
-                            kind=kind,
-                            owner=owner,
-                        ).save()
-                        info(f"✓ Plugged {plug}")
-                        return plug
-            if owner in (None, dst_instance):
-                for i in [*consumers, *executors]:
-                    kind = "trigger" if i.role == "executor" else None
-                    if i.owns_both:
-                        plug = Plug(
-                            src_instance=src_instance,
-                            dst_instance=dst_instance,
-                            topic=topic,
-                            mode=i.mode or mode,
-                            format=i.format or format,
-                            kind=kind,
-                            owner=owner,
-                        ).save()
-                        info(f"✓ Plugged {plug}")
-                        return plug
+        if owner in (None, src_instance):
+            for i in [*producers, *triggers]:
+                kind = "trigger" if i.role == "trigger" else None
+                if i.owns_both:
+                    plug = Plug(
+                        src_instance=src_instance,
+                        dst_instance=dst_instance,
+                        topic=topic,
+                        mode=i.mode or mode,
+                        format=i.format or format,
+                        kind=kind,
+                        owner=owner,
+                    ).save()
+                    info(f"✓ Plugged {plug}")
+                    return plug
+        if owner in (None, dst_instance):
+            for i in [*consumers, *executors]:
+                kind = "trigger" if i.role == "executor" else None
+                if i.owns_both:
+                    plug = Plug(
+                        src_instance=src_instance,
+                        dst_instance=dst_instance,
+                        topic=topic,
+                        mode=i.mode or mode,
+                        format=i.format or format,
+                        kind=kind,
+                        owner=owner,
+                    ).save()
+                    info(f"✓ Plugged {plug}")
+                    return plug
 
             raise ValueError(f"""❌ Matching capabilities were found between {dst_instance} ({dst.product}) and {src_instance} ({src.product}) for topic {topic} (mode={mode}),
 but couldn't find any @setup hook among matching integrations
@@ -1389,7 +1385,7 @@ def list_integrations(
                             Integration(
                                 product=product_dir.name,
                                 target_product=target_product_dir.name,
-                                topic=a.topic,
+                                topic=a.topic or b.topic,
                                 role=a.role,
                                 mode=a.mode,
                                 format=a.format or b.format,
