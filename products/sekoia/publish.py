@@ -157,7 +157,8 @@ def publish_automation_action(integration: Integration):
     Git(tmp_path).push(False, remote="origin", force=True)
 
     # Propose to create a PR from the fork to SEKOIA-IO/automation-library
-    _, org, _fork = Git(tmp_path).get_remote().split(".git")[0].rsplit("/", 2)
+    *_, org, _fork = Git(tmp_path).get_remote().split(".git")[0].rsplit("/", 2)
+    org = org.split(":")[-1]
     interaction.box(
         "Open a browser to",
         f"{REPO}/compare/main...{org}:{Git(tmp_path).get_branch()}?expand=1",
