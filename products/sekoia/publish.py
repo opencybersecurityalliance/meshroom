@@ -134,14 +134,17 @@ def publish_automation_action(integration: Integration):
         f"Please provide a github.com fork URL of {REPO}\n(open a browser to {REPO}/fork to create one)",
     )
 
-    path = integration.path.parent / "dist" / "formats" / name
+    path = integration.path.parent / "dist" / "automations" / name
     tmp_path = integration.path.parent / "dist" / f"tmp-{uuid4()}"
+
+    if not path.is_dir():
+        raise FileNotFoundError(f"Automation action {path} does not exist")
 
     # Clone the fork to tmp_path and create a new branch
     Git(tmp_path).pull(fork_url)
-    Git(tmp_path).create_branch(f"connector-{name}")
+    Git(tmp_path).create_branch(f"automation-{name}")
 
-    # Copy connector files
+    # Copy automation action files
     shutil.copytree(path, tmp_path / name)
 
     # Remove unrelated files
@@ -154,10 +157,10 @@ def publish_automation_action(integration: Integration):
     Git(tmp_path).push(False, remote="origin", force=True)
 
     # Propose to create a PR from the fork to SEKOIA-IO/automation-library
-    pr_source = Git(tmp_path).get_remote().split(":")[-1].split(".git")[0].split("/")[0]
+    _, org, _fork = Git(tmp_path).get_remote().split(".git")[0].rsplit("/", 2)
     interaction.box(
         "Open a browser to",
-        f"{REPO}/compare/main...{pr_source}/{Git(tmp_path).get_branch()}?expand=1",
+        f"{REPO}/compare/main...{org}:{Git(tmp_path).get_branch()}?expand=1",
         "To create a PR to SEKOIA-IO/automation-library",
     )
 
