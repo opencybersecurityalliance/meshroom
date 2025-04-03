@@ -1,4 +1,4 @@
-from meshroom.decorators import setup_consumer, teardown_consumer
+from meshroom.decorators import setup_consumer, setup_trigger, teardown_consumer
 from meshroom.model import Integration, Plug, Instance
 from .api import SekoiaAPI
 
@@ -87,3 +87,16 @@ def delete_intake_key(integration: Integration, plug: Plug, instance: Instance):
     plug.delete_secret("intake_key")
     if plug.settings.get("intake_uuid"):
         del plug.settings["intake_uuid"]
+
+
+@setup_trigger(owns_both=True)
+def trigger_generic_action(integration: Integration):
+    """
+    A generic Trigger for Sekoia.io playbook action
+    By default, Sekoia triggered actions don't require any setup on the executor side,
+    but feel free to override this default behavior in case the 3rd-party requires preliminary setup.
+
+    This hook simply checks that the integration has a valid action UUID.
+    """
+    if not getattr(integration, "automation_action_uuid", None):
+        raise ValueError(f"No automation_action_uuid found for {integration.topic} to {integration.target_product}, please implement a specific setup hook")

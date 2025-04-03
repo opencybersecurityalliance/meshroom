@@ -5,7 +5,7 @@ from meshroom.model import Integration, Plug, ProductSetting, create_product, ge
 from meshroom.utils import overwrite_directory
 from meshroom.git import Git
 from meshroom.decorators import pull
-from meshroom.interaction import info
+from meshroom.interaction import info, error
 import yaml
 
 
@@ -49,6 +49,26 @@ def pull_automation_library(path: Path):
 
         # Copy automation files to the integration folder
         overwrite_directory(module, sekoia.path / "integrations" / product_name / "dist" / "automation")
+
+        for action_file in module.glob("action_*.json"):
+            try:
+                with open(action_file, "r") as file:
+                    action_data = json.load(file)
+
+                action_uuid = action_data.get("uuid")
+                action_name = re.sub(rf"^action_({product_name})?_*", "", action_file.stem)
+
+                # Create the Sekoia trigger integration
+                i = Integration(product="sekoia", target_product=product_name, topic=action_name, role="trigger")
+                i.automation_action_uuid = action_uuid
+                i.automation_module_uuid = manifest_data.get("uuid")
+                i.save()
+
+                # Create the 3rd-party executor integration
+                get_product(product_name).add_capability("executor", action_name)
+                info(f"✓ Created integration {i}")
+            except Exception as e:
+                error(f"Error creating integration for {action_file}: {e}")
 
 
 def get_automation_module_by_uuid(repo: Path, uuid: str):

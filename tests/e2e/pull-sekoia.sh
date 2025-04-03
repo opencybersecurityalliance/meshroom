@@ -15,7 +15,7 @@ set -x
 meshroom init tests/e2e/data
 
 # PERSONA 1) Simulate a vendor who defines the Sekoia product
-cp -rf products tests/e2e/data/products
+cp -rf products/* tests/e2e/data/products
 
 cd tests/e2e/data
 meshroom pull sekoia

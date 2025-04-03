@@ -22,4 +22,10 @@ def trigger_action(instance: Instance, integration: Integration, action: str | N
     if not action_uuid:
         raise ValueError(f"No such action {action}")
 
+    # Check required arguments are present
+    action = api.get_action(action_uuid)
+    for required_arg in action.get("arguments", {}).get("required", []):
+        if required_arg not in data:
+            raise ValueError(f"Missing required argument '{required_arg}' for {integration.target_product} action '{action['name']}'")
+
     return api.trigger_action(action_uuid, data)

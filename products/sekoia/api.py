@@ -363,12 +363,19 @@ class SekoiaAPI(Session):
         """Return a list of notebooks"""
         return self.get("/v1/notebooks", params={"trashed": "false"}).json()["items"]
 
+    def get_action(self, uuid: str):
+        """Return the module UUID of the current user"""
+        return self.get(f"/v1/symphony/actions/{uuid}").json()
+
     def trigger_action(self, action_uuid: str, data: dict | None = None):
         """Trigger a playbook action"""
-
         print(f"Run playbook action {action_uuid} with arguments ({data})")
+
+        action = self.get_action(action_uuid)
+        accounts = self.get_module_configurations(action["module_uuid"])
+
         payload = {
-            "account_uuid": None,
+            "account_uuid": accounts[0]["uuid"] if accounts else None,
             "notebook_uuid": self.list_notebooks()[0]["uuid"],
             "action_uuid": action_uuid,
             "slug": f"playbook_action_{time()}",
