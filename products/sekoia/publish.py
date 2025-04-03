@@ -118,7 +118,7 @@ def publish_automation_connector(integration: Integration):
     shutil.rmtree(tmp_path)
 
 
-@publish(role="trigger", topic="action")
+@publish(role="trigger")
 def publish_automation_action(integration: Integration):
     """Publish an automation action as a PR to Sekoia.io's https://github.com/SEKOIA-IO/automation-library"""
     from meshroom.git import Git
