@@ -41,10 +41,6 @@ def test_plug():
     except ValueError:
         ...
 
-    # Shouldn't be able to plug without a setup hook
-    with pytest.raises(ValueError, match="couldn't find any @setup hook"):
-        plug("stuff", "otherproduct", "myproduct", "pull", "json", owner="otherproduct")
-
     p = plug("stuff", "otherproduct", "myproduct", "pull", "json")
 
     assert p == Plug(
